@@ -15,6 +15,9 @@ select
             , sum({{ce}}_count) as count_{{ce}}
         {% endfor %}
     {% endif %}
+    {% for ce in var('conversion_values', []) %}
+        , sum({{ce}}_value) as sum_{{ce}}
+    {% endfor %}
 from {{ref('fct_ga4__sessions_daily')}}
 group by 1,2
 
