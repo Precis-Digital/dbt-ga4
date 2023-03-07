@@ -31,7 +31,23 @@ with items_with_params as (
         i.creative_slot
     from {{ref('stg_ga4__events')}},
         unnest(items) as i
-    where event_name in ('add_payment_info', 'add_shipping_info', 'add_to_cart','add_to_wishlist','begin_checkout' ,'purchase','refund', 'remove_from_cart','select_item', 'select_promotion','view_item_list','view_promotion')
+    where event_name in (
+        'add_payment_info',
+        'add_shipping_info',
+        'add_to_cart',
+        'add_to_wishlist',
+        'begin_checkout',
+        'purchase',
+        'refund',
+        'remove_from_cart',
+        'select_item',
+        'select_promotion',
+        'view_item_list',
+        'view_promotion',
+        'view_item',
+        'sign_up',
+        'view_cart'
+    )
 )
 
 select * from items_with_params
